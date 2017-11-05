@@ -1,6 +1,7 @@
 var canvas;
 var snake;
-var food;
+var food = [];
+
 
 function grid() {
     fill(200, 200, 200);
@@ -20,19 +21,30 @@ function setup() {
     canvas.parent('sketch-holder');
 
     frameRate(FRAME_PER_SECOND);
+    noStroke();
 
-    food = new Food();
+    for(var i = 0; i < 249; i++) {
+        food.push(new Food());
+    }
+
     snake = new Snake();
 }
 
 function draw(){
     background(246, 248, 250);
-    grid();
-    food.show();
+
+    // grid();
+    for(var i = 0; i < 249; i++) {
+        if(food[i] !== null) food[i].show();
+    }
+
     snake.update();
-    if(snake.canEatFood(food)) {
-        snake.eat(food);
-        food.update();
+
+    for(var i = 0; i < 249; i++) {
+        if(food[i] !== null && snake.canEatFood(food[i])) {
+            snake.eat(food[i]);
+            food[i] = null;
+        }
     }
 }
 
