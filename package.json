@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "p5": "^0.5.16"
+  },
+  "name": "Snake",
+  "version": "1.0.0",
+  "description": "Snake game by p5.js",
+  "main": "index.js",
+  "author": "ThienLV <ohmygodvt95@gmail.com>",
+  "license": "MIT"
+}
